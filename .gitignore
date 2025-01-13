@@ -1,0 +1,30 @@
+
+###> symfony/framework-bundle ###
+/src/.env
+/src/.env.local
+/src/.env.local.php
+/src/.env.*.local
+/src/config/secrets/prod/prod.decrypt.private.php
+/src/public/bundles/
+/src/var/
+/src/vendor/
+###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+/src/phpunit.xml
+/src.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> symfony/phpunit-bridge ###
+/src.phpunit.result.cache
+/src/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> symfony/asset-mapper ###
+/src/public/assets/
+/src/assets/vendor/
+###< symfony/asset-mapper ###
+
+###> Others ###
+/src/.bash_history
+###< Others ###

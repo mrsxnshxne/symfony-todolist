@@ -1,0 +1,45 @@
+services:
+
+  www:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./vhosts:/etc/apache2/sites-enabled
+      - ./src:/var/www
+      - /var/www/vendor
+    restart: always
+    networks:
+      - symfony-app
+
+  mariadb:
+    image: mariadb:11.6.2
+    restart: always
+    volumes:
+      - symfony-app:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: 'root'
+    ports:
+      - "3306:3306"
+    networks:
+      - symfony-app
+
+  phpmyadmin:
+    image: phpmyadmin:5.2.1
+    restart: always
+    depends_on:
+      - mariadb
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mariadb
+    networks:
+      - symfony-app
+
+networks:
+  symfony-app:
+
+volumes:
+  symfony-app:
