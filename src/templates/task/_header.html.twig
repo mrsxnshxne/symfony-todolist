@@ -1,0 +1,24 @@
+<div class="w-full my-8">
+    <div class="w-full flex items-center justify-between pb-2">
+        <h1 class="text-xl font-semibold">To-Do</h1>
+
+        {% if app.request.pathinfo == '/' %}
+            <a href="{{ path('app_task_new') }}" class="text-sm font-semibold bg-indigo-500 text-white rounded-md py-2 px-4 inline-block">
+                <div class="flex items-center">
+                    <i data-lucide="plus" class="size-4 mr-2"></i>
+                    <p>New task</p>
+                </div>
+            </a>
+        {% else %}
+            <a href="{{ path('app_task_index') }}" class="text-sm font-semibold bg-zinc-100 text-zinc-800 rounded-md py-2 px-4 inline-block">
+                <div class="flex items-center">
+                    <i data-lucide="x" class="size-4 mr-2"></i>
+                    <p>Cancel</p>
+                </div>
+            </a>
+        {% endif %}
+
+    </div>
+
+    <hr class="border-zinc-200">
+</div>
