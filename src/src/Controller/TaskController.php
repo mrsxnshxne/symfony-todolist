@@ -68,6 +68,24 @@ final class TaskController extends AbstractController
         ]);
     }
 
+    #[Route('/{id}/complete', name: 'app_task_complete', methods: ['POST'])]
+    public function complete(Request $request, Task $task, EntityManagerInterface $entityManager): Response
+    {
+        $task->setIsCompleted(true);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_task_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/{id}/uncomplete', name: 'app_task_uncomplete', methods: ['POST'])]
+    public function uncomplete(Request $request, Task $task, EntityManagerInterface $entityManager): Response
+    {
+        $task->setIsCompleted(false);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_task_index', [], Response::HTTP_SEE_OTHER);
+    }
+
     #[Route('/{id}', name: 'app_task_delete', methods: ['POST'])]
     public function delete(Request $request, Task $task, EntityManagerInterface $entityManager): Response
     {
