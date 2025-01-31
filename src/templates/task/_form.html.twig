@@ -1,4 +1,58 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="flex flex-col mt-4">
+        <label for="{{ field_name(form.title) }}" class="font-semibold text-sm">
+            {{ field_label(form.title) }}
+        </label>
+        <input
+                type="text"
+                id="{{ field_name(form.title) }}"
+                name="{{ field_name(form.title) }}"
+                value="{{ field_value(form.title) }}"
+                placeholder="{{ field_label(form.title) }}"
+                class="bg-zinc-50 text-zinc-800 rounded-md py-2 px-4 mt-1"
+        >
+    </div>
+
+    <div class="flex flex-col mt-4">
+        <label for="{{ field_name(form.description) }}" class="font-semibold text-sm">
+            {{ field_label(form.description) }}
+        </label>
+        <textarea
+                id="{{ field_name(form.description) }}"
+                name="{{ field_name(form.description) }}"
+                placeholder="{{ field_label(form.description) }}"
+                class="bg-zinc-50 text-zinc-800 rounded-md py-2 px-4 mt-1"
+        >{{ field_value(form.description) }}</textarea>
+    </div>
+
+    <div class="flex flex-col mt-4">
+        <label for="{{ field_name(form.createdAt) }}" class="font-semibold text-sm">
+            {{ field_label(form.createdAt) }}
+        </label>
+        <input
+                type="date"
+                id="{{ field_name(form.createdAt) }}"
+                name="{{ field_name(form.createdAt) }}"
+                value="{{ field_value(form.createdAt) }}"
+                placeholder="{{ field_label(form.createdAt) }}"
+                class="bg-zinc-50 text-zinc-700 rounded-md py-2 px-4 mt-1"
+        >
+    </div>
+
+    <div class="flex mt-4">
+        <input
+                type="checkbox"
+                id="{{ field_name(form.isCompleted) }}"
+                name="{{ field_name(form.isCompleted) }}"
+                value="{{ field_value(form.isCompleted) }}"
+        >
+        <label for="{{ field_name(form.isCompleted) }}" class="font-semibold text-sm ml-2">
+            {{ field_label(form.isCompleted) }}
+        </label>
+    </div>
+
+    <button class="text-sm font-semibold bg-indigo-500 text-white rounded-md py-2 px-4 inline-block mt-4 flex items-center">
+        <i data-lucide="save" class="size-4 mr-2"></i>
+        <p>{{ button_label|default('Save') }}</p>
+    </button>
 {{ form_end(form) }}
