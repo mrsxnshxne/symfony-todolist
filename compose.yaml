@@ -12,19 +12,19 @@ services:
       - /var/www/vendor
     restart: always
     networks:
-      - symfony-app
+      - symfony-todolist
 
   mariadb:
     image: mariadb:11.6.2
     restart: always
     volumes:
-      - symfony-app:/var/lib/mysql
+      - symfony-todolist:/var/lib/mysql
     environment:
       MARIADB_ROOT_PASSWORD: 'root'
     ports:
       - "3306:3306"
     networks:
-      - symfony-app
+      - symfony-todolist
 
   phpmyadmin:
     image: phpmyadmin:5.2.1
@@ -36,10 +36,10 @@ services:
     environment:
       PMA_HOST: mariadb
     networks:
-      - symfony-app
+      - symfony-todolist
 
 networks:
-  symfony-app:
+  symfony-todolist:
 
 volumes:
-  symfony-app:
+  symfony-todolist:
