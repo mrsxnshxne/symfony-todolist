@@ -9,6 +9,29 @@
                     <p>New task</p>
                 </div>
             </a>
+        {% elseif app.request.pathinfo == '/' ~ task.id %}
+            <div>
+                <a href="{{ path('app_task_index') }}" class="bg-zinc-100 text-zinc-800 text-sm rounded-lg py-2 px-4 inline-block">
+                    <div class="flex items-center">
+                        <i data-lucide="corner-up-left" class="size-3.5 mr-2"></i>
+                        <p>Back</p>
+                    </div>
+                </a>
+
+                <a href="{{ path('app_task_edit', {'id': task.id}) }}" class="bg-zinc-800 text-white text-sm rounded-lg py-2 px-4 inline-block">
+                    <div class="flex items-center">
+                        <i data-lucide="pencil" class="size-3.5 mr-2"></i>
+                        <p>Edit</p>
+                    </div>
+                </a>
+
+                <a href="{{ path('app_task_delete', {'id': task.id}) }}" class="bg-red-500 text-white text-sm rounded-lg py-2 px-4 inline-block">
+                    <div class="flex items-center">
+                        <i data-lucide="trash" class="size-3.5 mr-2"></i>
+                        <p>Delete</p>
+                    </div>
+                </a>
+            </div>
         {% else %}
             <a href="{{ path('app_task_index') }}" class="text-sm font-semibold bg-zinc-100 text-zinc-800 rounded-md py-2 px-4 inline-block">
                 <div class="flex items-center">
