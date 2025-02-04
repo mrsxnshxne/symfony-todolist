@@ -8,8 +8,12 @@
 
             {{ include('task/_header.html.twig') }}
 
-            <div class="w-full">
+            <div class="w-full flex items-center justify-between">
                 <h2 class="text-2xl font-semibold">My tasks</h2>
+
+                <div>
+                    {{ include('task/_dropdown_sorting.html.twig') }}
+                </div>
             </div>
 
             <div class="flex flex-col items-center mt-4 space-y-2">
