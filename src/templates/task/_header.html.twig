@@ -10,7 +10,7 @@
                 </div>
             </a>
         {% elseif app.request.pathinfo == '/' ~ task.id %}
-            <div>
+            <div class="flex items-center space-x-2">
                 <a href="{{ path('app_task_index') }}" class="bg-zinc-100 text-zinc-800 text-sm rounded-lg py-2 px-4 inline-block">
                     <div class="flex items-center">
                         <i data-lucide="corner-up-left" class="size-3.5 mr-2"></i>
@@ -25,12 +25,7 @@
                     </div>
                 </a>
 
-                <a href="{{ path('app_task_delete', {'id': task.id}) }}" class="bg-red-500 text-white text-sm rounded-lg py-2 px-4 inline-block">
-                    <div class="flex items-center">
-                        <i data-lucide="trash" class="size-3.5 mr-2"></i>
-                        <p>Delete</p>
-                    </div>
-                </a>
+                {{ include('task/_delete_form.html.twig') }}
             </div>
         {% else %}
             <a href="{{ path('app_task_index') }}" class="text-sm font-semibold bg-zinc-100 text-zinc-800 rounded-md py-2 px-4 inline-block">
