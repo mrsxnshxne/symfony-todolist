@@ -23,7 +23,7 @@ class Task
     private ?bool $isCompleted = false;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
+    private ?\DateTimeImmutable $date = null;
 
     public function getId(): ?int
     {
@@ -66,14 +66,14 @@ class Task
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getDate(): ?\DateTimeImmutable
     {
-        return $this->createdAt;
+        return $this->date;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    public function setDate(\DateTimeImmutable $date): static
     {
-        $this->createdAt = $createdAt;
+        $this->date = $date;
 
         return $this;
     }

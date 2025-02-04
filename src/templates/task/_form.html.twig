@@ -8,7 +8,8 @@
                 id="{{ field_name(form.title) }}"
                 name="{{ field_name(form.title) }}"
                 value="{{ field_value(form.title) }}"
-                placeholder="{{ field_label(form.title) }}"
+                placeholder="e.g. Make the best to-do app"
+                required="required"
                 class="bg-zinc-50 text-zinc-800 rounded-md py-2 px-4 mt-1"
         >
     </div>
@@ -20,21 +21,22 @@
         <textarea
                 id="{{ field_name(form.description) }}"
                 name="{{ field_name(form.description) }}"
-                placeholder="{{ field_label(form.description) }}"
+                placeholder="e.g. I need to make the best to-do app in the world. I will use Symfony and TailwindCSS."
                 class="bg-zinc-50 text-zinc-800 rounded-md py-2 px-4 mt-1"
         >{{ field_value(form.description) }}</textarea>
     </div>
 
     <div class="flex flex-col mt-4">
-        <label for="{{ field_name(form.createdAt) }}" class="font-semibold text-sm">
-            {{ field_label(form.createdAt) }}
+        <label for="{{ field_name(form.date) }}" class="font-semibold text-sm">
+            {{ field_label(form.date) }}
         </label>
         <input
                 type="date"
-                id="{{ field_name(form.createdAt) }}"
-                name="{{ field_name(form.createdAt) }}"
-                value="{{ field_value(form.createdAt) }}"
-                placeholder="{{ field_label(form.createdAt) }}"
+                id="{{ field_name(form.date) }}"
+                name="{{ field_name(form.date) }}"
+                value="{{ field_value(form.date) }}"
+                placeholder="{{ field_label(form.date) }}"
+                required="required"
                 class="bg-zinc-50 text-zinc-700 rounded-md py-2 px-4 mt-1"
         >
     </div>

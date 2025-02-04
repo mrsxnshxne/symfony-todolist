@@ -17,11 +17,13 @@ class TaskType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('description', TextareaType::class)
+            ->add('description', TextareaType::class, [
+                'required' => false,
+            ])
             ->add('isCompleted', CheckboxType::class, [
                 'required' => false,
             ])
-            ->add('createdAt', DateType::class, [
+            ->add('date', DateType::class, [
                 'widget' => 'single_text',
             ])
         ;
