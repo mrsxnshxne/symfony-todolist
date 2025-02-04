@@ -16,19 +16,17 @@
                 font-family: 'Inter', sans-serif;
             }
         </style>
-
-        {#        {% block javascripts %}#}
-{#            {% block importmap %}{{ importmap('app') }}{% endblock %}#}
-{#        {% endblock %}#}
     </head>
+
+
     <body>
         {% block body %}{% endblock %}
-
-        <script src="https://unpkg.com/lucide@latest"></script>
-        <script>
-            lucide.createIcons();
-        </script>
     </body>
 
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
     {% block js %}{% endblock %}
 </html>
