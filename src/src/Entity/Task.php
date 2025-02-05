@@ -21,8 +21,8 @@ class Task
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\Column]
-    private ?bool $isCompleted = false;
+    #[ORM\Column(length: 255)]
+    private ?string $state = null;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $date = null;
@@ -70,14 +70,14 @@ class Task
         return $this;
     }
 
-    public function getIsCompleted(): ?bool
+    public function getState(): ?string
     {
-        return $this->isCompleted;
+        return $this->state;
     }
 
-    public function setIsCompleted(bool $isCompleted): static
+    public function setState(string $state): static
     {
-        $this->isCompleted = $isCompleted;
+        $this->state = $state;
 
         return $this;
     }
