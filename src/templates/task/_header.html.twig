@@ -18,6 +18,13 @@
                         <p>Show users</p>
                     </div>
                 </a>
+
+                <a href="{{ path('app_category_index') }}" class="text-sm font-semibold bg-zinc-100 text-zinc-800 rounded-md py-2 px-4 inline-block">
+                    <div class="flex items-center">
+                        <i data-lucide="users" class="size-4 mr-2"></i>
+                        <p>Show categories</p>
+                    </div>
+                </a>
             </div>
 
         {% elseif app.request.pathinfo == '/task/' ~ task.id %}

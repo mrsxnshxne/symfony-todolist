@@ -24,9 +24,11 @@
                         <p class="font-semibold text-zinc-600">Unstarted</p>
                     </div>
 
-                    {% for task in unstartedTasks %}
-                        {{ include('task/_task_card.html.twig', {'task': task}) }}
-                    {% endfor %}
+                    <div class="flex flex-col space-y-2">
+                        {% for task in unstartedTasks %}
+                            {{ include('task/_task_card.html.twig', {'task': task}) }}
+                        {% endfor %}
+                    </div>
                 </div>
 
                 <div class="bg-zinc-50 p-2 rounded-lg">
@@ -35,9 +37,11 @@
                         <p class="font-semibold text-zinc-600">In Progress</p>
                     </div>
 
-                    {% for task in inProgressTasks %}
-                        {{ include('task/_task_card.html.twig', {'task': task}) }}
-                    {% endfor %}
+                    <div class="flex flex-col space-y-2">
+                        {% for task in inProgressTasks %}
+                            {{ include('task/_task_card.html.twig', {'task': task}) }}
+                        {% endfor %}
+                    </div>
                 </div>
 
                 <div class="bg-zinc-50 p-2 rounded-lg">
@@ -46,9 +50,11 @@
                         <p class="font-semibold text-zinc-600">Completed</p>
                     </div>
 
-                    {% for task in completedTasks %}
-                        {{ include('task/_task_card.html.twig', {'task': task}) }}
-                    {% endfor %}
+                    <div class="flex flex-col space-y-2">
+                        {% for task in completedTasks %}
+                            {{ include('task/_task_card.html.twig', {'task': task}) }}
+                        {% endfor %}
+                    </div>
                 </div>
 
             </div>

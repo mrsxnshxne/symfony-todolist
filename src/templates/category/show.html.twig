@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}category{% endblock %}
+
+{% block body %}
+    <div class="w-full min-h-screen flex justify-center">
+        <div class="max-w-5xl w-full h-full flex flex-col text-zinc-800">
+
+            {{ include('category/_header.html.twig') }}
+
+            <div class="w-full">
+                <h2 class="text-2xl font-semibold">About {{ category.name }}</h2>
+            </div>
+
+            <div>
+                <div class="flex flex-col mt-4">
+                    <div class="flex flex-col mt-4">
+                        <p class="font-semibold text-sm">
+                            Firstname
+                        </p>
+                        <p class="bg-zinc-50 text-zinc-800 rounded-md py-2 px-4 mt-1">
+                            {{ category.name }}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col mt-4">
+                    <div class="flex flex-col mt-4">
+                        <p class="font-semibold text-sm">
+                            Lastname
+                        </p>
+                        <p class="bg-zinc-50 text-zinc-800 rounded-md py-2 px-4 mt-1">
+                            {{ category.description }}
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -6,6 +6,7 @@ use App\Entity\Task;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -21,7 +22,13 @@ class TaskType extends AbstractType
             ->add('description', TextareaType::class, [
                 'required' => false,
             ])
-            ->add('state', TextType::class)
+            ->add('state', ChoiceType::class, [
+                'choices' => [
+                    'Unstarted' => 'unstarted',
+                    'In Progress' => 'in_progress',
+                    'Completed' => 'completed',
+                ],
+            ])
             ->add('date', DateType::class, [
                 'widget' => 'single_text',
             ])
