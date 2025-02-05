@@ -1,4 +1,66 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="flex flex-col mt-4">
+        <label for="{{ field_name(form.firstname) }}" class="font-semibold text-sm">
+            {{ field_label(form.firstname) }}
+        </label>
+        <input
+                type="text"
+                id="{{ field_name(form.firstname) }}"
+                name="{{ field_name(form.firstname) }}"
+                value="{{ field_value(form.firstname) }}"
+                placeholder="e.g. John"
+                required="required"
+                class="bg-zinc-50 text-zinc-800 rounded-md py-2 px-4 mt-1"
+        >
+    </div>
+
+    <div class="flex flex-col mt-4">
+        <label for="{{ field_name(form.lastname) }}" class="font-semibold text-sm">
+            {{ field_label(form.lastname) }}
+        </label>
+        <input
+                type="text"
+                id="{{ field_name(form.lastname) }}"
+                name="{{ field_name(form.lastname) }}"
+                value="{{ field_value(form.lastname) }}"
+                placeholder="e.g. Doe"
+                required="required"
+                class="bg-zinc-50 text-zinc-800 rounded-md py-2 px-4 mt-1"
+        >
+    </div>
+
+    <div class="flex flex-col mt-4">
+        <label for="{{ field_name(form.phone) }}" class="font-semibold text-sm">
+            {{ field_label(form.phone) }}
+        </label>
+        <input
+                type="text"
+                id="{{ field_name(form.phone) }}"
+                name="{{ field_name(form.phone) }}"
+                value="{{ field_value(form.phone) }}"
+                placeholder="e.g. 0011223344"
+                required="required"
+                class="bg-zinc-50 text-zinc-800 rounded-md py-2 px-4 mt-1"
+        >
+    </div>
+
+    <div class="flex flex-col mt-4">
+        <label for="{{ field_name(form.email) }}" class="font-semibold text-sm">
+            {{ field_label(form.email) }}
+        </label>
+        <input
+                type="text"
+                id="{{ field_name(form.email) }}"
+                name="{{ field_name(form.email) }}"
+                value="{{ field_value(form.email) }}"
+                placeholder="e.g. john.doe@meow.fr"
+                required="required"
+                class="bg-zinc-50 text-zinc-800 rounded-md py-2 px-4 mt-1"
+        >
+    </div>
+
+    <button class="text-sm font-semibold bg-indigo-500 text-white rounded-md py-2 px-4 inline-block mt-4 flex items-center">
+        <i data-lucide="user" class="size-4 mr-2"></i>
+        <p>{{ button_label|default('Save') }}</p>
+    </button>
 {{ form_end(form) }}

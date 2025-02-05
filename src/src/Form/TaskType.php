@@ -3,8 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Task;
+use App\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -23,6 +24,12 @@ class TaskType extends AbstractType
             ->add('state', TextType::class)
             ->add('date', DateType::class, [
                 'widget' => 'single_text',
+            ])
+            ->add('users', EntityType::class, [
+                'class' => User::class,
+                'choice_label' => 'firstname',
+                'multiple' => true,
+                'expanded' => true,
             ])
         ;
     }

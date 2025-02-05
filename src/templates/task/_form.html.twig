@@ -56,6 +56,22 @@
         >
     </div>
 
+    <div class="flex flex-col mt-4">
+{#        <label for="{{ field_name(form.users) }}" class="font-semibold text-sm">#}
+{#            {{ field_label(form.users) }}#}
+{#        </label>#}
+
+        {{ form_widget(form.users) }}
+
+{#        <select id="{{ field_name(form.users) }}" name="{{ field_name(form.users) }}" class="form-control">#}
+{#            <option value="">{{ field_label(form.users) }}</option>#}
+
+{#            {% for label, value in field_choices(form.users) %}#}
+{#                <option value="{{ value }}">{{ label }}</option>#}
+{#            {% endfor %}#}
+{#        </select>#}
+    </div>
+
     <button class="text-sm font-semibold bg-indigo-500 text-white rounded-md py-2 px-4 inline-block mt-4 flex items-center">
         <i data-lucide="save" class="size-4 mr-2"></i>
         <p>{{ button_label|default('Save') }}</p>
