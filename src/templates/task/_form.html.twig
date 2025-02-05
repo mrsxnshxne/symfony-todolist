@@ -49,7 +49,9 @@
 
             <select id="{{ field_name(form.category) }}" name="{{ field_name(form.category) }}" class="bg-zinc-50 text-zinc-700 rounded-md py-2 px-4 mt-1" required>
                 {% for label, value in field_choices(form.category) %}
-                    <option value="{{ value }}">{{ label }}</option>
+                    <option value="{{ value }}" {% if value == task.category.id %}selected{% endif %}>
+                        {{ label }}
+                    </option>
                 {% endfor %}
             </select>
         </div>
@@ -61,7 +63,9 @@
 
             <select id="{{ field_name(form.state) }}" name="{{ field_name(form.state) }}" class="bg-zinc-50 text-zinc-700 rounded-md py-2 px-4 mt-1" required>
                 {% for label, value in field_choices(form.state) %}
-                    <option value="{{ value }}">{{ label }}</option>
+                    <option value="{{ value }}" {% if value == task.state %}selected{% endif %}>
+                        {{ label }}
+                    </option>
                 {% endfor %}
             </select>
         </div>
