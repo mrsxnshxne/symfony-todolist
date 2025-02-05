@@ -30,7 +30,7 @@ class Task
     /**
      * @var Collection<int, User>
      */
-    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'tasks')]
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'tasks', cascade: ['persist'])]
     private Collection $users;
 
     #[ORM\ManyToOne(inversedBy: 'tasks')]
@@ -102,6 +102,20 @@ class Task
         return $this->users;
     }
 
+    /**
+     * @param Collection<int, User> $users
+     */
+    public function setUsers(Collection $users): static
+    {
+        $this->users = new ArrayCollection();
+
+        foreach ($users as $user) {
+            $this->addUser($user);
+        }
+
+        return $this;
+    }
+
     public function addUser(User $user): static
     {
         if (!$this->users->contains($user)) {
@@ -114,7 +128,7 @@ class Task
 
     public function removeUser(User $user): static
     {
-        if ($this->users->removeElement($user)) {
+        if ($this->users->contains($user)) {
             $user->removeTask($this);
         }
 

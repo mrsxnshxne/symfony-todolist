@@ -73,6 +73,21 @@ final class TaskController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            // remove all
+            $cachedUsers = $task->getUsers();
+            foreach ($cachedUsers as $user) {
+                $user->removeTask($task);
+                $task->removeUser($user);
+            }
+
+            // add new
+            foreach ($task->getUsers() as $user) {
+                $user->addTask($task);
+                $task->addUser($user);
+            }
+
+            $entityManager->persist($task);
             $entityManager->flush();
 
             return $this->redirectToRoute('app_task_index', [], Response::HTTP_SEE_OTHER);

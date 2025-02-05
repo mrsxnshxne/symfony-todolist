@@ -30,7 +30,7 @@ class User
     /**
      * @var Collection<int, Task>
      */
-    #[ORM\ManyToMany(targetEntity: Task::class, inversedBy: 'users')]
+    #[ORM\ManyToMany(targetEntity: Task::class, mappedBy: 'users')]
     private Collection $tasks;
 
     public function __construct()
