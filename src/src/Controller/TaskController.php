@@ -34,7 +34,10 @@ final class TaskController extends AbstractController
 //        }
 
         return $this->render('task/index.html.twig', [
-            'tasks' => $taskRepository->findAll(),
+            'amount' => $taskRepository->count(),
+            'unstartedTasks' => $taskRepository->findAll(),
+            'inProgressTasks' => $taskRepository->findAll(),
+            'completedTasks' => $taskRepository->findAll(),
         ]);
     }
 

@@ -16,47 +16,49 @@
                 </div>
             </div>
 
-            <div class="flex flex-col items-center mt-4 space-y-2">
-                {% for task in tasks %}
-                    <div class="w-full p-4 border rounded-lg flex items-center justify-between shadow-sm">
-                        <div class="w-3/4 flex items-center">
+            <div class="grid grid-cols-3 mt-4 gap-x-2">
 
-                            <div class="w-full ml-2">
-                                <h2 class="font-semibold">{{ task.title }}</h2>
-                                <p class="text-sm text-zinc-500 line-clamp-1">{{ task.description }}</p>
-
-                                <div class="bg-zinc-100 text-zinc-500 text-sm rounded-md py-1 px-2 inline-block mt-2">
-                                    <div class="flex items-center">
-                                        <i data-lucide="calendar" class="size-4 mr-1"></i>
-                                        <p>{{ task.date ? task.date|date('d/m/Y') : '' }}</p>
-                                    </div>
-                                </div>
-
-                                <div class="bg-indigo-100 text-indigo-500 text-sm rounded-md py-1 px-2 inline-block mt-1">
-                                    <div class="flex items-center">
-                                        <i data-lucide="list" class="size-4 mr-1"></i>
-                                        <p>{{ task.state }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="w-1/4 flex items-center justify-end space-x-2">
-                            <a href="{{ path('app_task_show', {'id': task.id}) }}" class="bg-zinc-100 rounded-lg p-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
-                            </a>
-                            <a href="{{ path('app_task_edit', {'id': task.id}) }}" class="bg-zinc-800 text-white rounded-lg p-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>
-                            </a>
-                        </div>
+                <div class="bg-zinc-50 p-2 rounded-lg">
+                    <div class="flex items-center space-x-2 mb-1 mx-0.5">
+                        <div class="size-2.5 rounded-full bg-zinc-500"></div>
+                        <p class="font-semibold text-zinc-600">Unstarted</p>
                     </div>
-                {% else %}
-                    <div class="w-full p-4 bg-zinc-100 rounded-lg flex items-center text-zinc-500">
-                        <i data-lucide="x" class="size-4 mr-2"></i>
-                        <p>No task found. Create one!</p>
+
+                    {% for task in unstartedTasks %}
+                        {{ include('task/_task_card.html.twig', {'task': task}) }}
+                    {% endfor %}
+                </div>
+
+                <div class="bg-zinc-50 p-2 rounded-lg">
+                    <div class="flex items-center space-x-2 mb-1 mx-0.5">
+                        <div class="size-2.5 rounded-full bg-orange-500"></div>
+                        <p class="font-semibold text-zinc-600">In Progress</p>
                     </div>
-                {% endfor %}
+
+                    {% for task in inProgressTasks %}
+                        {{ include('task/_task_card.html.twig', {'task': task}) }}
+                    {% endfor %}
+                </div>
+
+                <div class="bg-zinc-50 p-2 rounded-lg">
+                    <div class="flex items-center space-x-2 mb-1 mx-0.5">
+                        <div class="size-2.5 rounded-full bg-green-500"></div>
+                        <p class="font-semibold text-zinc-600">Completed</p>
+                    </div>
+
+                    {% for task in completedTasks %}
+                        {{ include('task/_task_card.html.twig', {'task': task}) }}
+                    {% endfor %}
+                </div>
+
             </div>
+
+            {% if amount == 0 %}
+                <div class="w-full p-4 bg-zinc-100 rounded-lg flex items-center text-zinc-500">
+                    <i data-lucide="x" class="size-4 mr-2"></i>
+                    <p>No task found. Create one!</p>
+                </div>
+            {% endif %}
 
         </div>
     </div>

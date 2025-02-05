@@ -1,0 +1,23 @@
+<a href="{{ path('app_task_show', {'id': task.id}) }}" class="w-full py-4 px-3 border rounded-lg flex items-center justify-between shadow-sm bg-white hover:shadow-lg transition duration-300 ease-in-out">
+    <div class="w-full flex items-center">
+
+        <div class="w-full ml-2">
+            <h2 class="font-semibold">{{ task.title }}</h2>
+            <p class="text-sm text-zinc-500 line-clamp-2">{{ task.description }}</p>
+
+            <div class="bg-zinc-100 text-zinc-500 text-sm rounded-md py-1 px-2 inline-block mt-4">
+                <div class="flex items-center">
+                    <i data-lucide="calendar" class="size-4 mr-1"></i>
+                    <p>{{ task.date ? task.date|date('d/m/Y') : '' }}</p>
+                </div>
+            </div>
+
+            <div class="bg-indigo-100 text-indigo-500 text-sm rounded-md py-1 px-2 inline-block mt-1">
+                <div class="flex items-center">
+                    <i data-lucide="list" class="size-4 mr-1"></i>
+                    <p>catégo</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</a>
