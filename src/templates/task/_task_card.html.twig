@@ -12,12 +12,14 @@
                 </div>
             </div>
 
-            <div class="bg-indigo-100 text-indigo-500 text-sm rounded-md py-1 px-2 inline-block mt-1">
-                <div class="flex items-center">
-                    <i data-lucide="list" class="size-4 mr-1"></i>
-                    <p>catégo</p>
+            {% if task.category %}
+                <div class="bg-indigo-100 text-indigo-500 text-sm rounded-md py-1 px-2 inline-block mt-1">
+                    <div class="flex items-center">
+                        <i data-lucide="list" class="size-4 mr-1"></i>
+                        <p>{{ task.category.name }}</p>
+                    </div>
                 </div>
-            </div>
+            {% endif %}
         </div>
     </div>
 </a>

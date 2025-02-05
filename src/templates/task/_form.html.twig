@@ -41,16 +41,30 @@
         >
     </div>
 
-    <div class="flex flex-col mt-4">
-        <label for="{{ field_name(form.state) }}" class="font-semibold text-sm">
-            {{ field_label(form.state) }}
-        </label>
+    <div class="flex items-center space-x-4 mt-4">
+        <div class="w-full flex flex-col mt-4">
+            <label for="{{ field_name(form.category) }}" class="font-semibold text-sm">
+                {{ field_label(form.category) }}
+            </label>
 
-        <select id="{{ field_name(form.state) }}" name="{{ field_name(form.state) }}" class="bg-zinc-50 text-zinc-700 rounded-md py-2 px-4 mt-1" required>
-            {% for label, value in field_choices(form.state) %}
-                <option value="{{ value }}">{{ label }}</option>
-            {% endfor %}
-        </select>
+            <select id="{{ field_name(form.category) }}" name="{{ field_name(form.category) }}" class="bg-zinc-50 text-zinc-700 rounded-md py-2 px-4 mt-1" required>
+                {% for label, value in field_choices(form.category) %}
+                    <option value="{{ value }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="w-full flex flex-col mt-4">
+            <label for="{{ field_name(form.state) }}" class="font-semibold text-sm">
+                {{ field_label(form.state) }}
+            </label>
+
+            <select id="{{ field_name(form.state) }}" name="{{ field_name(form.state) }}" class="bg-zinc-50 text-zinc-700 rounded-md py-2 px-4 mt-1" required>
+                {% for label, value in field_choices(form.state) %}
+                    <option value="{{ value }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
     </div>
 
     <div class="flex flex-col mt-4">
