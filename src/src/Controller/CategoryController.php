@@ -74,7 +74,7 @@ final class CategoryController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->getPayload()->getString('_token'))) {
 
             if ($category->getTasks()->count() > 0) {
-                $this->addFlash('error', 'You cannot delete this category because some tasks are using it.');
+                $this->addFlash('error', 'You cannot delete "' . $category->getName() . '" because '. $category->getTasks()->count() . ' tasks are using it.');
                 return $this->redirectToRoute('app_category_index', [], Response::HTTP_SEE_OTHER);
             }
 
