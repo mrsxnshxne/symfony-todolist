@@ -46,13 +46,15 @@
                     </div>
                 </div>
 
-                <div class="flex mt-4">
-                    <input
-                            type="checkbox"
-                            value="{{ task.isCompleted }}"
-                            disabled
-                    >
-                    <p class="font-semibold text-sm ml-2">Is complete</p>
+                <div class="flex flex-col mt-4">
+                    <div class="flex flex-col mt-4">
+                        <p class="font-semibold text-sm">
+                            State
+                        </p>
+                        <p class="bg-zinc-50 text-zinc-800 rounded-md py-2 px-4 mt-2">
+                            {{ task.state }}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

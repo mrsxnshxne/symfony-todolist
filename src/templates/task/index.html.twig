@@ -21,21 +21,7 @@
                     <div class="w-full p-4 border rounded-lg flex items-center justify-between shadow-sm">
                         <div class="w-3/4 flex items-center">
 
-                            {% if task.isCompleted %}
-                                <form method="post" action="{{ path('app_task_uncomplete', {'id': task.id}) }}">
-                                    <button class="size-6 rounded-md flex items-center justify-center bg-indigo-500">
-                                        <i data-lucide="check" class="size-4 text-white"></i>
-                                    </button>
-                                </form>
-                            {% else %}
-                                <form method="post" action="{{ path('app_task_complete', {'id': task.id}) }}">
-                                    <button class="size-6 border rounded-md flex items-center justify-center">
-
-                                    </button>
-                                </form>
-                            {% endif %}
-
-                            <div class="w-full ml-4">
+                            <div class="w-full ml-2">
                                 <h2 class="font-semibold">{{ task.title }}</h2>
                                 <p class="text-sm text-zinc-500 line-clamp-1">{{ task.description }}</p>
 
@@ -43,6 +29,13 @@
                                     <div class="flex items-center">
                                         <i data-lucide="calendar" class="size-4 mr-1"></i>
                                         <p>{{ task.date ? task.date|date('d/m/Y') : '' }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="bg-indigo-100 text-indigo-500 text-sm rounded-md py-1 px-2 inline-block mt-1">
+                                    <div class="flex items-center">
+                                        <i data-lucide="list" class="size-4 mr-1"></i>
+                                        <p>{{ task.state }}</p>
                                     </div>
                                 </div>
                             </div>

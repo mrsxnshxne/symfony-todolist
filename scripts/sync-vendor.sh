@@ -5,8 +5,8 @@ if [ -z "$CONTAINER_ID" ]; then
   exit 1
 fi
 
-[ ! -d "./src/vendor" ] && mkdir -p ./src/vendor
-docker cp "$CONTAINER_ID:/var/www/vendor" ./src
+[ ! -d "./src/vendor" ] && mkdir -p ./../src/vendor
+docker cp "$CONTAINER_ID:/var/www/vendor" ./../src
 
 if [ $? -eq 0 ]; then
   echo "Le dossier 'vendor' a été synchronisé avec succès !"
