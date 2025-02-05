@@ -2,60 +2,60 @@
     <div class="w-full flex items-center justify-between pb-2">
         <h1 class="text-xl font-semibold">To-Do</h1>
 
-        {% if app.request.pathinfo == '/' %}
+        {% if app.request.pathinfo == '/user' %}
 
             <div class="flex items-center space-x-2">
-                <a href="{{ path('app_task_new') }}" class="text-sm font-semibold bg-indigo-500 text-white rounded-md py-2 px-4 inline-block">
+                <a href="{{ path('app_user_new') }}" class="text-sm font-semibold bg-indigo-500 text-white rounded-md py-2 px-4 inline-block">
                     <div class="flex items-center">
                         <i data-lucide="plus" class="size-4 mr-2"></i>
-                        <p>New task</p>
+                        <p>New user</p>
                     </div>
                 </a>
 
                 <a href="{{ path('app_user_index') }}" class="text-sm font-semibold bg-zinc-100 text-zinc-800 rounded-md py-2 px-4 inline-block">
                     <div class="flex items-center">
-                        <i data-lucide="users" class="size-4 mr-2"></i>
-                        <p>Show users</p>
+                        <i data-lucide="list" class="size-4 mr-2"></i>
+                        <p>Back to tasks</p>
                     </div>
                 </a>
             </div>
 
-        {% elseif app.request.pathinfo == '/task/' ~ task.id %}
+        {% elseif app.request.pathinfo == '/user/' ~ user.id %}
 
             <div class="flex items-center space-x-2">
-                <a href="{{ path('app_task_index') }}" class="bg-zinc-100 text-zinc-800 text-sm rounded-lg py-2 px-4 inline-block">
+                <a href="{{ path('app_user_index') }}" class="bg-zinc-100 text-zinc-800 text-sm rounded-lg py-2 px-4 inline-block">
                     <div class="flex items-center">
                         <i data-lucide="corner-up-left" class="size-3.5 mr-2"></i>
                         <p>Back</p>
                     </div>
                 </a>
 
-                <a href="{{ path('app_task_edit', {'id': task.id}) }}" class="bg-zinc-800 text-white text-sm rounded-lg py-2 px-4 inline-block">
+                <a href="{{ path('app_user_edit', {'id': user.id}) }}" class="bg-zinc-800 text-white text-sm rounded-lg py-2 px-4 inline-block">
                     <div class="flex items-center">
                         <i data-lucide="pencil" class="size-3.5 mr-2"></i>
                         <p>Edit</p>
                     </div>
                 </a>
 
-                {{ include('task/_delete_form.html.twig') }}
+                {{ include('user/_delete_form.html.twig') }}
             </div>
 
-        {% elseif app.request.pathinfo == '/task/' ~ task.id ~ '/edit' %}
+        {% elseif app.request.pathinfo == '/user/' ~ user.id ~ '/edit' %}
 
             <div class="flex items-center space-x-2">
-                <a href="{{ path('app_task_index') }}" class="bg-zinc-100 text-zinc-800 text-sm rounded-lg py-2 px-4 inline-block">
+                <a href="{{ path('app_user_index') }}" class="bg-zinc-100 text-zinc-800 text-sm rounded-lg py-2 px-4 inline-block">
                     <div class="flex items-center">
                         <i data-lucide="corner-up-left" class="size-3.5 mr-2"></i>
                         <p>Back</p>
                     </div>
                 </a>
 
-                {{ include('task/_delete_form.html.twig') }}
+                {{ include('user/_delete_form.html.twig') }}
             </div>
 
         {% else %}
 
-            <a href="{{ path('app_task_index') }}" class="text-sm font-semibold bg-zinc-100 text-zinc-800 rounded-md py-2 px-4 inline-block">
+            <a href="{{ path('app_user_index') }}" class="text-sm font-semibold bg-zinc-100 text-zinc-800 rounded-md py-2 px-4 inline-block">
                 <div class="flex items-center">
                     <i data-lucide="x" class="size-4 mr-2"></i>
                     <p>Cancel</p>
